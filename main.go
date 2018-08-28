@@ -4,14 +4,15 @@ import (
 	"fmt"
 	"net/http"
 	"os"
-
-	figure "github.com/common-nighthawk/go-figure"
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	hostname := os.Getenv("HOSTNAME")
-	f := figure.NewFigure(hostname, "", true)
-	f.Print()
+	if hostname != "" {
+	  fmt.Fprintf(w,hostname)
+        } else {
+	  fmt.Fprintf(w,"HOSTNAME is empty")
+        }
 }
 
 func main() {
