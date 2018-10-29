@@ -7,12 +7,9 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
+	version := "1.0"
 	hostname := os.Getenv("HOSTNAME")
-	if hostname != "" {
-	  fmt.Fprintf(w,hostname)
-        } else {
-	  fmt.Fprintf(w,"HOSTNAME is empty")
-        }
+	fmt.Fprintf(w,"hostname: %s\nversion: %s\n", hostname, version)
 }
 
 func main() {
