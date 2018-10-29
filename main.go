@@ -7,7 +7,7 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	version := "1.0"
+	version := "2.0"
 	hostname := os.Getenv("HOSTNAME")
 	fmt.Fprintf(w,"hostname: %s\nversion: %s\n", hostname, version)
 }
